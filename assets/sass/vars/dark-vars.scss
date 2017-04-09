@@ -1,0 +1,14 @@
+/* Dark vars */
+$brand-primary:         #0070a5;
+$body-bg:               #1a1a1a;
+$section-gray:          #2f2f2f;
+$cell-bg:               $body-bg;
+$cell-border-color:     #515151;
+$cell-price-bg:         #515151;
+$cell-color:            #fff;
+$cell-color-actual:     $brand-primary;
+$headings-color:        #fff;
+$text-color:            #999999;
+$gray-light:            lighten($section-gray, 10%);
+$gray:                  #fff;
+$gray-darker:           $gray;

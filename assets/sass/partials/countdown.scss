@@ -1,0 +1,42 @@
+@import "../bootstrap/variables";
+@import "../mixins/mixins";
+
+.countdown{
+  text-align: center;
+  @include rem(padding-top, 30px);
+  > div{
+    display: table-cell;
+    width: 1%;
+    vertical-align: top;
+    font-family: $secondary-font-family;
+    font-weight: 700;
+    text-align: center;
+    span:first-child{
+      @include font-size(80px);
+
+      &:after{
+        content: "";
+        border-bottom: 1px solid #fff;
+        display: block;
+        width: 100px;
+        margin: auto;
+        @include rem(margin-top, 20px);
+        @include rem(margin-bottom, 10px);
+      }
+
+      @media (max-width: $screen-xs){
+        @include font-size(40px);
+
+        &:after{
+          width: 40px;
+        }
+      }
+    }
+    span:last-child{
+      @include font-size(15px);
+      color: $brand-primary;
+      display: block;
+      text-transform: uppercase;
+    }
+  }
+}

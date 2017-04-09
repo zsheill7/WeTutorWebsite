@@ -1,0 +1,58 @@
+.change-styles{
+  background: #fff;
+  border-radius: 0 0 0 5px;
+  padding: 10px;
+  position: fixed; right: 0; top: 30%;
+  width: 200px;
+  transform: translate(200px, 0);
+  -moz-transform: translate(200px, 0);
+  -webkit-transform: translate(200px, 0);
+  transition: all 300ms;
+  -moz-transition: all 300ms;
+  -webkit-transition: all 300ms;
+
+  &:hover{
+    transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -webkit-transform: translate(0, 0);
+  }
+
+  .setting-icon{
+    position: absolute; top: 0; left: -50px;
+    width: 50px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    border-radius: 5px 0 0 5px;
+    font-size: 30px;
+
+
+  }
+
+  .select-theme{
+    overflow: hidden;
+    padding: 0 0 15px 0;
+    .theme{
+      float: left;
+      width: 50%;
+      border: 1px solid #000;
+      line-height: 60px;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+
+  .color-skins{
+    .color{
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      cursor: pointer;
+      &.active{
+        box-shadow: 0 0 0 3px #000 inset;
+      }
+    }
+  }
+}

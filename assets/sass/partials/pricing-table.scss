@@ -1,0 +1,130 @@
+@import "../bootstrap/variables";
+$cell-radius: 10px;
+$cell-border-color: #fff !default;
+$cell-price-bg: #f2f2f2 !default;
+$cell-color: $brand-primary !default;
+$cell-color-actual: $cell-color !default;
+/* Pricing table */
+.pricing-table{
+  display: table;
+  width: 100%;
+  @include rem(margin-top, 70px);
+
+  @media (max-width: $screen-xs) {
+    @include rem(margin-top, 20px);
+  }
+
+  .pricing-cell{
+    /* Pricing table-cell */
+    display: table-cell;
+    @include rem(padding, 0 20px);
+    color: $gray;
+    .cell-header{
+      /* Cell header */
+      border-radius: $cell-radius $cell-radius 0 0;
+      background-color: $cell-bg;
+      text-align: center;
+      @include font-size(32px);
+      @include rem(line-height, 87px);
+      font-weight: 300;
+      border: 1px solid $cell-border-color;
+      border-bottom: none;
+      color: $gray-darker;
+    }
+    .cell-body{
+      /* Cell body */
+      background-color: $cell-bg;
+      @include rem(padding, 0 14px);
+      text-align: center;
+      border: 1px solid $cell-border-color;
+      border-bottom: none;
+      border-top: none;
+      .price{
+        @include font-size(30px);
+        @include rem(line-height, 106px);
+        @include rem(margin-left, -14px);
+        @include rem(margin-right, -14px);
+        font-weight: 300;
+        background: $cell-price-bg;
+        color: $cell-color;
+        sup{
+          font-weight: 400;
+          @include font-size(32px);
+          line-height: 1;
+          top: -0.9em;
+        }
+      }
+
+      ul{
+        padding: 0;
+        @include rem(padding-top, 30px);
+        margin: 0;
+        list-style: none;
+        li{
+          @include rem(line-height, 54px);
+          @include font-size(17px);
+          font-weight: 300;
+        }
+      }
+    }
+    .cell-footer{
+      /* Cell footer */
+      background-color: $cell-bg;
+      @include rem(padding, 20px 15px 47px);
+      border-radius: 0 0 $cell-radius $cell-radius;
+      border: 1px solid $cell-border-color;
+      border-top: none;
+      text-align: center;
+      .btn{
+        background: none;
+        border: 2px solid $brand-primary;
+        color: $brand-primary;
+        font-weight: 700;
+        @include font-size(17px);
+        @include rem(padding, 0 65px);
+        @include rem(height, 50px);
+        @include rem(line-height, 46px);
+
+        &:hover{
+          background: $brand-primary;
+          color: #fff;
+        }
+      }
+    }
+
+    &.actual{
+      /* Primary cell */
+      .cell-header{
+        background-color: $brand-primary;
+        color: #fff;
+      }
+      .cell-body{
+        color: #fff;
+        background-color: $brand-primary;
+        
+        .price{
+          background: #fff;
+          color: $cell-color-actual;
+        }
+        ul{
+          li{
+            border-color: #fff;
+          }
+        }
+      }
+      .cell-footer{
+        background-color: $brand-primary;
+
+        .btn{
+          border-color: #fff;
+          color: #fff;
+
+          &:hover{
+            background: #fff;
+            color: $brand-primary;
+          }
+        }
+      }
+    }
+  }
+}

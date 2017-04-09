@@ -1,0 +1,239 @@
+@import "../mixins/mixins";
+@import "../bootstrap/variables";
+/* Slick Slider properties */
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+
+    .slide{
+      @include rem(padding, 0 $grid-gutter-width/2 20px);
+      img{
+        max-width: 100%;
+      }
+    }
+
+    &.slider-gallery{
+      @include rem(margin-top, 60px);
+    }
+    &.testimonials-slider{
+
+      .slide{
+        img{
+          border-radius: 50%;
+          @include rem(margin-bottom, 30px);
+        }
+
+        figcaption{
+          text-align: center;
+          .text{
+            @include font-size(15px);
+            @include rem(line-height, 24px);
+            @include rem(margin-bottom, 35px);
+            font-style: italic;
+            position: relative;
+            @include rem(padding, 0 30px);
+
+            &:before, &:after{
+              content: "’’";
+              @include font-size(126px);
+              letter-spacing: -0.07em;
+              position: absolute;
+            }
+            &:before{
+              @include rotate(180deg);
+              left: 23px;
+              top: -35px;
+            }
+            &:after{
+              content: "’’";
+              bottom: -35px;
+              right: 23px;
+            }
+          }
+
+          cite{
+            @include font-size(20px);
+            font-weight: 500;
+            color: $brand-primary;
+            font-style: normal;
+            letter-spacing: -0.07em;
+          }
+          small{
+            display: block;
+            @include font-size(13px);
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+}
+.slick-list {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.slick-track {
+    position: relative;
+    left: 0;
+    top: 0;
+    display: block;
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+}
+.slick-slide {
+    float: left;
+    height: 100%;
+    min-height: 1px;
+    [dir="rtl"] & {
+        float: right;
+    }
+    img {
+        display: block;
+        margin: auto;
+    }
+    &.slick-loading img {
+        display: none;
+    }
+
+    display: none;
+
+    &.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized & {
+        display: block;
+    }
+
+    .slick-loading & {
+        visibility: hidden;
+    }
+
+    .slick-vertical & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+
+  &.media{
+    margin-top: 0;
+  }
+
+  h2{
+    @include rem(margin-bottom, 75px);
+    @media (max-width: $screen-sm){
+      @include rem(margin-bottom, 20px);
+      @include rem(margin-top, 20px);
+    }
+  }
+  h4{
+    @include rem(margin-bottom, 25px);
+  }
+}
+
+.featured-slider{
+  .slick-slide {
+    @media (max-width: $screen-sm) {
+      text-align: center;
+      img {
+        max-width: 30%;
+      }
+    }
+    @media (max-width: $screen-xs) {
+      img {
+        max-width: 50%;
+      }
+    }
+
+  }
+}
+
+ul.slick-dots{
+  list-style: none;
+  text-align: center;
+  font-size: 0;
+  padding: 0;
+  @include rem(margin-top, 50px);
+
+  @media (max-width: $screen-xs){
+    @include rem(margin-top, 20px);
+  }
+
+  > li{
+    display: inline-block;
+    vertical-align: middle;
+    @include rem(padding-left, 2px);
+    @include rem(padding-right, 2px);
+
+    button{
+      @include rem(width, 13px);
+      @include rem(height, 13px);
+      font-size: 0;
+      padding: 0;
+      background: transparent;
+      @include box-shadow(0 0 0 2px $gray-light inset);
+      border-radius: 50%;
+      border: none;
+      text-indent: -9999px;
+      outline: none;
+      display: block;
+      @include transition(all 400ms);
+    }
+
+    &.slick-active{
+      button{
+        @include box-shadow(0 0 0 10px $brand-primary inset);
+      }
+    }
+  }
+}
+
+.thumb-slider, .testimonials-slider{
+  .slick-dots{
+    @include rem(margin-top, 30px);
+  }
+}

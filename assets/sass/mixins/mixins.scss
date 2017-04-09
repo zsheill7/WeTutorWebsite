@@ -1,0 +1,66 @@
+@import "../bootstrap/variables";
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+$baseline-px: $font-size-base;
+
+// Vendor prefix
+@mixin vendor($prop, $args){
+  -webkit-#{$prop}: $args;
+  -moz-#{$prop}: $args;
+  #{$prop}: $args;
+}
+
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $baseline-px * 1;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem * 1rem; }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: ();
+    @each $value in $px-values {
+      // If the value is zero or not a number, return it
+      @if $value == 0 or type-of( $value ) != "number" {
+        $rem-values: append($rem-values, $value); }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem * 1em); } }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values; } }
+
+@mixin font-size($value){
+  @include rem(font-size, $value);
+}
+
+
+// Box-shadow mixin
+@mixin box-shadow($shadow){
+  @include vendor('box-shadow', $shadow)
+}
+
+@mixin box-sizing($box: border-box){
+  @include vendor('box-sizing', $box)
+}
+
+@mixin transition($trans: all 400ms){
+  transition: $trans;
+  -moz-transition: $trans;
+  -webkit-transition: $trans;
+}
+
+@mixin translate($x, $y){
+  transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+}
+
+@mixin scale($x, $y) {
+  transform: scale($x, $y);
+  -moz-transform: scale($x, $y);
+  -webkit-transform: scale($x, $y);
+}

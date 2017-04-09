@@ -1,0 +1,63 @@
+@import "../bootstrap/variables";
+@import "../mixins/mixins";
+/* Customize bootstrap forms */
+
+form.contacts{
+  @include rem(margin-top, 55px);
+}
+
+.form-control{
+  background: transparent;
+  border: 1px solid $gray;
+  @include font-size(15px);
+  @include rem(height, 51px);
+  @include rem(line-height, 51px);
+  @include rem(margin-bottom, 27px);
+  outline: none;
+  @include placeholder($gray);
+  color: $gray;
+  @include box-shadow(none);
+
+
+  &:focus{
+    border-color: $brand-primary;
+    @include box-shadow(none);
+  }
+}
+
+.bg-primary{
+  .form-control{
+    border-color: rgba(#fff, .7);
+    color: #fff;
+    @include placeholder(#fff);
+
+    &:focus{
+      border-color: #fff;
+    }
+  }
+}
+
+textarea.form-control{
+  @include rem(line-height, 20px);
+  @include rem(height, 200px);
+  @include placeholder(#fff);
+}
+
+.input-group{
+  .form-control{
+    &:first-child{
+      border-radius: 5px;
+    }
+  }
+  .input-group-btn{
+    @include rem(padding-left, 8px);
+
+    .btn{
+      @include rem(height, 54px);
+      @include rem(line-height, 54px);
+      border-radius: 5px;
+      border-color: $btn-primary-color;
+      text-transform: uppercase;
+    }
+  }
+}

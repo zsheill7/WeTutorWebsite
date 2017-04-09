@@ -1,0 +1,123 @@
+@import "../bootstrap/variables";
+@import "../mixins/mixins";
+
+/* Customize bootstrap buttons */
+.btn{
+  @include rem(height, 54px);
+  @include rem(line-height, 52px);
+  @include rem(padding, 0 40px);
+  @include font-size(18px);
+  background: $brand-primary;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  @include transition(all 400ms);
+  font-weight: 500;
+
+  @media (max-width: $screen-md) {
+    @include rem(padding, 0 15px);
+  }
+
+  &:hover{
+    background: darken($brand-primary, 10%);
+    color: #fff;
+  }
+
+  &:active, &:focus{
+    color: #fff;
+    outline: none;
+  }
+
+  &.btn-default{
+    background: rgba(#000, .3);
+    border: 1px solid $brand-primary;
+    color: $brand-primary;
+
+    &:hover{
+      background: rgba(#000, .6);
+    }
+  }
+  &.app-store, &.play-market{
+    position: relative;
+
+
+
+    .fa{
+      @include font-size(30px);
+      vertical-align: middle;
+      @include rem(margin-left, -25px);
+      @include rem(margin-right, 15px);
+
+      @media (max-width: $screen-lg) {
+        margin: 0;
+      }
+    }
+    small{
+      @include font-size(10px);
+      position: absolute;
+      @include rem(top, -30px);
+    }
+    > span{
+      position: relative;
+      @include rem(top, 5px);
+
+      > span{
+        @include font-size(20px);
+        font-weight: 500;
+      }
+
+      @media (max-width: $screen-lg) {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-group{
+  > .btn{
+    @include rem(margin-right, 9px);
+    border-radius: $border-radius-base;
+
+    &:last-child{
+      margin-right: 0;
+    }
+
+    @media (max-width: $screen-xs){
+      float: none;
+      @include rem(margin-bottom, 10px);
+    }
+  }
+
+  @media (max-width: $screen-xs){
+    display: block;
+    text-align: center;
+  }
+}
+
+.bg-primary{
+  .btn{
+    background: #fff;
+    color: $brand-primary;
+    font-weight: 700;
+
+    &.tiny{
+      font-weight: 300;
+    }
+  }
+
+}
+
+.section{
+  .btn-default{
+    border-color: $brand-primary;
+    color: $brand-primary;
+    background: none;
+
+    &:hover{
+      background: $brand-primary;
+      color: #fff;
+    }
+  }
+}
