@@ -143,7 +143,7 @@ a (standard):	#37bbf9 (dark blue)
       right: 0;
       bottom: 0;
       left: 0;
-      background: url(http://placehold.it/333x567.png) top center no-repeat;
+      background: url('../../images/Calendar.png') top center no-repeat;
       margin: 87px 21px 0 21px;
       margin: 5.8em 1.4em 0 1.4em;
       background-size: cover; }
