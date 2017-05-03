@@ -1,60 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   </head>
   <body>
-
-  	<div class="container">
-   	 <h1>Get in Touch!</h1>
-
-   	 <div id="error>"></div>
-   	 <form method="post">
-  <div class="form-group">
+      
+      <div class="container">
+      
+    <h1>Get in touch!</h1>
+      
+      <div id="error"><? echo $error.$successMessage; ?></div>
+      
+      <form method="post">
+  <fieldset class="form-group">
     <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
     <small class="text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
+  </fieldset>
+  <fieldset class="form-group">
     <label for="subject">Subject</label>
-    <input type="text" class="form-control" id="subject" name="subject">
-  </div>
-  
-  <div class="form-group">
-    <label for="content">What would you like to ask us?</label>
-    <textarea class="form-control" id="content"  name="subject" rows="3"></textarea>
-  </div>
- 
+    <input type="text" class="form-control" id="subject" name="subject" >
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="exampleTextarea">What would you like to ask us?</label>
+    <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+  </fieldset>
   <button type="submit" id="submit" class="btn btn-primary">Submit</button>
 </form>
+          
+        </div>
 
-    </div>
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+          
+          
     <script type="text/javascript">
-    	$("form").submit(function (e) {
-    		e.preventDefault();
-
-    		var error = "";
-    		if ($("#subject").val() == "") {
-    			error += "<p>The subject field is required.</p>";
-    		}
-    		if ($("#content").val() == "") {
-    			error += "<p>The content field is required.</p>";
-    		}
-
-    		if (error != "") {
-    			$("#error").html('<div class="alert alert-danger" role="alert"><strong>There were errors in your form:</strong>' + error + '</div>');
-    		}
-    	})
+          
+          $("form").submit(function(e) {
+              
+              var error = "";
+              
+              if ($("#email").val() == "") {
+                  
+                  error += "The email field is required.<br>"
+                  
+              }
+              
+              if ($("#subject").val() == "") {
+                  
+                  error += "The subject field is required.<br>"
+                  
+              }
+              
+              if ($("#content").val() == "") {
+                  
+                  error += "The content field is required.<br>"
+                  
+              }
+              
+              if (error != "") {
+                  
+                 $("#error").html('<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' + error + '</div>');
+                  
+                  return false;
+                  
+              } else {
+                  
+                  return true;
+                  
+              }
+          })
+          
     </script>
+          
   </body>
 </html>
