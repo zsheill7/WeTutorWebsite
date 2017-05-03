@@ -4,7 +4,7 @@
 	$subject = "Hi friend";
 	$body = "What's crackalackin?";
 
-	$headers = "From: zsheill7@gmail.com";
+	$headers = "From: katherine@gelsey.com";
 	if (mail($emailTo, $subject, $body, $headers)) {
 		echo "The email was sent";
 	} else {
