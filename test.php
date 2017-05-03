@@ -12,7 +12,9 @@
 
   	<div class="container">
    	 <h1>Get in Touch!</h1>
-   	 <form>
+
+   	 <div id="error>"></div>
+   	 <form method="post">
   <div class="form-group">
     <label for="email">Email address</label>
     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter your email address">
