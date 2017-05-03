@@ -50,7 +50,7 @@
     		}
 
     		if (error != "") {
-    			$("#error").html('<div class="alert alert-danger" role="alert"><strong>Oh snap!</strong> Change a few things up and try submitting again.</div>');
+    			$("#error").html('<div class="alert alert-danger" role="alert"><strong>There were errors in your form:</strong>' + error + '</div>');
     		}
     	})
     </script>
