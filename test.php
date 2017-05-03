@@ -1,3 +1,42 @@
+
+<?php
+
+	print_r($_POST);
+	$error = "";
+
+	if ($_POST) {
+		
+
+		if (!$_POST["email"]) {
+
+			$error .= "An email address is required.<br>"
+		}
+
+		if (!$_POST["content"]) {
+
+			$error .= "The content field is required.<br>"
+		}
+
+		if (!$_POST["subject"]) {
+
+			$error .= "The subject is required.<br>"
+		}
+
+		if ($_POST["email"] && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) === false) {
+			echo("$email is a valid email address");
+		} else {
+			echo("$email is not a valid email address");
+		}
+
+		if ($error != "") {
+			$error = '<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' . $error . '</div>';
+		}
+	}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,6 +111,8 @@
                   return false;
                   
               } else {
+
+              	$("form").unbind("submit").submit();
                   
                   return true;
                   
