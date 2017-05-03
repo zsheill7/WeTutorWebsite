@@ -24,11 +24,11 @@
   </div>
   
   <div class="form-group">
-    <label for="exampleTextarea">Example textarea</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    <label for="content">What would you like to ask us?</label>
+    <textarea class="form-control" id="content" rows="3"></textarea>
   </div>
  
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
 </form>
 
     </div>
@@ -36,5 +36,23 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    	$("form").submit(function (e) {
+    		e.preventDefault();
+
+    		var error = "";
+    		if ($("#subject").val() == "") {
+    			error += "<p>The subject field is required.</p>";
+    		}
+    		if ($("#content").val() == "") {
+    			error += "<p>The content field is required.</p>";
+    		}
+
+    		if (error != "") {
+    			$("#error").html('<div class="alert alert-danger" role="alert"><strong>Oh snap!</strong> Change a few things up and try submitting again.</div>');
+    		}
+    	})
+    </script>
   </body>
 </html>
