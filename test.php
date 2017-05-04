@@ -30,6 +30,19 @@
 
 		if ($error != "") {
 			$error = '<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' . $error . '</div>';
+		} else {
+			$emailTo = "wetutorapp@gmail.com";
+			$subject = $_POST['subject'];
+
+			$content = $_POST['content'];
+			$headers = "From: ".$_POST['email'];
+
+			if (mail($emailTo, $subject, $content, $headers)) {
+				$successMessage = '<div class="alert alert-success" role="alert">Your message was sent - we\'ll get back to you soon</div>';
+			} else {
+				$error = '<div class="alert alert-danger" role="alert"><p><strong>Your message could not be sent - please try again later</strong></p>' . $error . '</div>';
+
+			}
 		}
 	}
 
